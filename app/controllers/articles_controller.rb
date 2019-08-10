@@ -6,6 +6,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new articles_params
     @article.save
+    redirect_to @article
   end
 
   private
