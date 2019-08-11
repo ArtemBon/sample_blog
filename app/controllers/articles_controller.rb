@@ -17,6 +17,18 @@ class ArticlesController < ApplicationController
     redirect_to @article
   end
 
+  def edit
+    @article = Article.find params[:id]
+  end
+
+  def update
+    @article = Article.find params[:id]
+    
+    @article.update articles_params
+    redirect_to @article
+  end
+
+
   private
 
   def articles_params
