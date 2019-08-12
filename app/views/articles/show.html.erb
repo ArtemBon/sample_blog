@@ -3,6 +3,22 @@
   <%= @article.text %>
 </p>
 
+<% if @article.comments.any? %>
+<h4>Comments:</h4>
+<% end %>
+
+<p>
+  <% @article.comments.each do |comment| %>
+  <p>
+    <%= comment.body %>
+    <br />
+    <br />
+    <span style="font-size: 75%; color: #999">Added by <%= comment.author %></span>
+  </p>
+  <hr />
+  <% end %>
+</p>
+
 <p>
   <%= form_for([@article, @article.comments.build]) do |f| %>
 
